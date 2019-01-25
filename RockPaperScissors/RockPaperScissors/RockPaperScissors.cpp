@@ -3,13 +3,13 @@
 
 /****************************************************
 * Programmer: Yiannis Poulos                        *
-*													*
-* Date: 1/16/19										*
-*													*
-* Purpose: This program functions as a simple		*
-*          Rock, Paper, Scissors game between the	*
-*		   user and the computer.					*
-*													*
+*						    *
+* Date: 1/16/19					    *
+*						    *
+* Purpose: This program functions as a simple	    *
+*          Rock, Paper, Scissors game between the   *
+*		   user and the computer.	    *
+*						    *
 *****************************************************/
 
 #include "pch.h"
