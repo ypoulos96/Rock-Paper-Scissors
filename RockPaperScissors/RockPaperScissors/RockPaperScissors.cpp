@@ -3,13 +3,13 @@
 
 /****************************************************
 * Programmer: Yiannis Poulos                        *
-*						    *
-* Date: 1/16/19					    *
-*						    *
-* Purpose: This program functions as a simple	    *
-*          Rock, Paper, Scissors game between the   *
-*		   user and the computer.	    *
-*						    *
+*													*
+* Date: 1/16/19										*
+*													*
+* Purpose: This program functions as a simple		*
+*          Rock, Paper, Scissors game between the	*
+*		   user and the computer. 					*
+*													*
 *****************************************************/
 
 #include "pch.h"
@@ -65,8 +65,8 @@ void displayFinalStats()
 //Main function for the actual game
 void playGame()
 {	
-	int roundsPlayed = 0;
-	int numRounds = 3;
+	//int roundsPlayed = 0;
+	int roundsToWin = 3;
 	int playerRoundWins = 0;
 	int computerRoundWins = 0;
 
@@ -79,12 +79,11 @@ void playGame()
 	do
 	{
 		//Reset all counters at beginning of new set
-		roundsPlayed = 0;
 		playerRoundWins = 0;
 		computerRoundWins = 0;
 
-		//While rounds played is less than 3...
-		while (roundsPlayed < numRounds)
+		//While neither player has the required number of wins...
+		while (playerRoundWins < roundsToWin && computerRoundWins < roundsToWin)
 		{
 			//Ask user for their move
 			cout << "Enter your move: ";			
@@ -123,7 +122,7 @@ void playGame()
 			else if (computerChoice == 'S')
 				cout << "Computer played Scissors\n\n";
 
-			//Determine winner of round
+			//Determine winner of current round
 			if (playerChoice == computerChoice)
 				cout << "It's a tie!\n\n";
 
@@ -132,7 +131,6 @@ void playGame()
 				cout << "Rock beats Scissors. You win!\n\n";
 				playerRoundWins++;
 				playerTotalWins++;
-				roundsPlayed++;
 			}
 
 			else if (playerChoice == 'R' && computerChoice == 'P')
@@ -140,15 +138,13 @@ void playGame()
 				cout << "Paper beats Rock. You lose.\n\n";
 				computerRoundWins++;
 				computerTotalWins++;
-				roundsPlayed++;
 			}
 
 			else if (playerChoice == 'P' && computerChoice == 'S')
 			{
 				cout << "Scissors beat Paper. You lose.\n\n";
 				computerRoundWins++;
-				computerTotalWins++;
-				roundsPlayed++;
+				computerTotalWins++;				
 			}
 
 			else if (playerChoice == 'P' && computerChoice == 'R')
@@ -156,7 +152,6 @@ void playGame()
 				cout << "Paper beats Rock. You win!\n\n";
 				playerRoundWins++;
 				playerTotalWins++;
-				roundsPlayed++;
 			}
 
 			else if (playerChoice == 'S' && computerChoice == 'R')
@@ -164,15 +159,13 @@ void playGame()
 				cout << "Rock beats Scissors. You lose.\n\n";
 				computerRoundWins++;
 				computerTotalWins++;
-				roundsPlayed++;
 			}
 
 			else if (playerChoice == 'S' && computerChoice == 'P')
 			{
 				cout << "Scissors beat Paper. You win!\n\n";
 				playerRoundWins++;
-				playerTotalWins++;
-				roundsPlayed++;
+				playerTotalWins++;				
 			}
 
 			//Display current round scores
@@ -184,13 +177,11 @@ void playGame()
 		//If computer won more rounds than player...
 		if (playerRoundWins < computerRoundWins)		
 			cout << "Better luck next time :(" << endl << endl;
-		
 
 		//If player won more rounds than computer...
 		else if (playerRoundWins > computerRoundWins)
 			cout << "\nYOU WON!!! :D" << endl << endl;
 		
-
 		//Ask user to play another round
 		cout << "\nWould you like to play again? (y/n): ";
 		cin >> playAgain;
@@ -215,11 +206,3 @@ int main()
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
